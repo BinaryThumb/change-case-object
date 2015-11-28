@@ -4,7 +4,8 @@
   "description": "Changes the case of all keys of an object",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,9 @@
     "camel-case": "^1.2.0",
     "param-case": "^1.1.1",
     "snake-case": "^1.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.2",
+    "eslint-config-airbnb": "^1.0.2"
   }
 }
