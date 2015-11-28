@@ -4,9 +4,10 @@
   "description": "Changes the case of all keys of an object",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "mocha",
-    "lint": "eslint ."
+    "coverage": "istanbul cover _mocha --report html -- -R spec"
   },
   "repository": {
     "type": "git",
@@ -33,8 +34,11 @@
   },
   "devDependencies": {
     "chai": "^3.4.1",
+    "coveralls": "^2.11.4",
     "eslint": "^1.10.2",
     "eslint-config-airbnb": "^1.0.2",
-    "mocha": "^2.3.4"
+    "istanbul": "^0.4.1",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
   }
 }
