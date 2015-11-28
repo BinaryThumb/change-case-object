@@ -4,6 +4,7 @@
   "description": "Changes the case of all keys of an object",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm run lint",
     "test": "mocha",
     "lint": "eslint ."
   },
