@@ -33,4 +33,64 @@ describe('change-case-object', function() {
 
     expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
   });
+
+  it('paramCase', function() {
+    var initialObj = {
+      'helloWorld': 'test',
+    };
+
+    var fixtureObj = {
+      'hello-world': 'test',
+    };
+
+    expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('paramCase (deep)', function() {
+    var initialObj = {
+      'helloWorld': {
+        'helloThere': 'name',
+        'myName': 'someone',
+      },
+    };
+
+    var fixtureObj = {
+      'hello-world': {
+        'hello-there': 'name',
+        'my-name': 'someone',
+      },
+    };
+
+    expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('snakeCase', function() {
+    var initialObj = {
+      'helloWorld': 'test',
+    };
+
+    var fixtureObj = {
+      'hello_world': 'test',
+    };
+
+    expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('snakeCase (deep)', function() {
+    var initialObj = {
+      'helloWorld': {
+        'helloThere': 'name',
+        'myName': 'someone',
+      },
+    };
+
+    var fixtureObj = {
+      'hello_world': {
+        'hello_there': 'name',
+        'my_name': 'someone',
+      },
+    };
+
+    expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
+  });
 });
