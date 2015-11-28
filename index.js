@@ -2,12 +2,12 @@ var camelCase = require('camel-case');
 var snakeCase = require('snake-case');
 var paramCase = require('param-case');
 
-var changeKeys = function(transformer, obj) {
+var changeKeys = function changeKeys(transformer, obj) {
   var objectKeys = Object.keys(obj);
 
-  return objectKeys.map(function(key) {
+  return objectKeys.map(function keysMap(key) {
     return transformer(key);
-  }).reduce(function(object, changedKey, index) {
+  }).reduce(function keysReducer(object, changedKey, index) {
     var objValue = obj[objectKeys[index]];
 
     var transformedValue = (typeof objValue === 'object') ? changeKeys(transformer, objValue) : objValue;
@@ -18,15 +18,15 @@ var changeKeys = function(transformer, obj) {
 };
 
 var changeCaseObject = {};
-changeCaseObject.camel = changeCaseObject.camelCase = function(obj) {
+changeCaseObject.camel = changeCaseObject.camelCase = function camelCaseObject(obj) {
   return changeKeys(camelCase, obj);
 };
 
-changeCaseObject.snake = changeCaseObject.snakeCase = function(obj) {
+changeCaseObject.snake = changeCaseObject.snakeCase = function snakeCaseObject(obj) {
   return changeKeys(snakeCase, obj);
 };
 
-changeCaseObject.param = changeCaseObject.paramCase = function(obj) {
+changeCaseObject.param = changeCaseObject.paramCase = function paramCaseObject(obj) {
   return changeKeys(paramCase, obj);
 };
 
