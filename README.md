@@ -4,7 +4,7 @@
 [![Dependency Status](https://david-dm.org/BinaryThumb/change-case-object.svg)](https://david-dm.org/BinaryThumb/change-case-object)
 [![devDependency Status](https://david-dm.org/BinaryThumb/change-case-object/dev-status.svg)](https://david-dm.org/BinaryThumb/change-case-object#info=devDependencies)
 [![Coverage Status](https://coveralls.io/repos/BinaryThumb/change-case-object/badge.svg?branch=master&service=github)](https://coveralls.io/github/BinaryThumb/change-case-object?branch=master)
-
+[![Code Climate](https://codeclimate.com/github/BinaryThumb/change-case-object/badges/gpa.svg)](https://codeclimate.com/github/BinaryThumb/change-case-object)
 
 Changes the case of all object's keys
 
