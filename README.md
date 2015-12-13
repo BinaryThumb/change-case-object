@@ -6,7 +6,7 @@
 [![Coverage Status](https://coveralls.io/repos/BinaryThumb/change-case-object/badge.svg?branch=master&service=github)](https://coveralls.io/github/BinaryThumb/change-case-object?branch=master)
 [![Code Climate](https://codeclimate.com/github/BinaryThumb/change-case-object/badges/gpa.svg)](https://codeclimate.com/github/BinaryThumb/change-case-object)
 
-Changes the case of all object's keys
+Changes the case of all object's keys,Array,String
 
 ## Installation
 
