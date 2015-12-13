@@ -1,6 +1,6 @@
 {
   "name": "change-case-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Changes the case of all keys of an object",
   "main": "index.js",
   "scripts": {
@@ -40,5 +40,8 @@
     "istanbul": "^0.4.1",
     "mocha": "^2.3.4",
     "mocha-lcov-reporter": "^1.0.0"
+  },
+  "scripts": {
+    "test": "node ./node_modules/mocha/bin/mocha"
   }
 }
