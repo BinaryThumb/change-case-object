@@ -3,8 +3,8 @@ var expect = chai.expect;
 
 var changeCaseObject = require('../index');
 
-describe('change-case-object', function() {
-  it('camelCase', function() {
+describe('change-case-object', function () {
+  it('camelCase', function () {
     var initialObj = {
       'hello_world': 'test',
     };
@@ -15,23 +15,23 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
-  it('camelCase (Array of Object)', function() {
+  it('camelCase (Array of Object)', function () {
     var initialArrObj = [
-      {'hello_world': 'test'},
-      {is_Active: true},
-      {isActive: true},
+      { 'hello_world': 'test' },
+      { is_Active: true },
+      { isActive: true },
     ];
 
     var fixtureArrObj = [
-      {'helloWorld': 'test'},
-      {isActive: true},
-      {isActive: true},
+      { 'helloWorld': 'test' },
+      { isActive: true },
+      { isActive: true },
     ];
 
     expect(changeCaseObject.camelCase(initialArrObj)).to.deep.equal(fixtureArrObj);
   });
 
-  it('camelCase (Array of string)', function() {
+  it('camelCase (Array of string)', function () {
     var initialArrStr = ['is_active', 'is_blocked'];
 
     var fixtureArrStr = ['isActive', 'isBlocked'];
@@ -39,7 +39,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
 
-  it('camelCase (Primitive - string)', function() {
+  it('camelCase (Primitive - string)', function () {
     var initialPrimitive = 'is_active';
 
     var fixturePrimitive = 'isActive';
@@ -47,7 +47,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('camelCase (Primitive - number)', function() {
+  it('camelCase (Primitive - number)', function () {
     var initialPrimitive = 42;
 
     var fixturePrimitive = 42;
@@ -55,7 +55,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('camelCase (Primitive - bool)', function() {
+  it('camelCase (Primitive - bool)', function () {
     var initialPrimitive = true;
 
     var fixturePrimitive = true;
@@ -63,7 +63,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('camelCase (deep)', function() {
+  it('camelCase (deep)', function () {
     var initialObj = {
       'hello_world': {
         'hello_there': 'name',
@@ -81,7 +81,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
-  it('paramCase', function() {
+  it('paramCase', function () {
     var initialObj = {
       'helloWorld': 'test',
     };
@@ -93,23 +93,23 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
-  it('paramCase (Array of Object)', function() {
+  it('paramCase (Array of Object)', function () {
     var initialArrObj = [
-      {'hello_world': 'test'},
-      {is_Active: true},
-      {isActive: true},
+      { 'hello_world': 'test' },
+      { is_Active: true },
+      { isActive: true },
     ];
 
     var fixtureArrObj = [
-      {'hello-world': 'test'},
-      {'is-active': true},
-      {'is-active': true},
+      { 'hello-world': 'test' },
+      { 'is-active': true },
+      { 'is-active': true },
     ];
 
     expect(changeCaseObject.paramCase(initialArrObj)).to.deep.equal(fixtureArrObj);
   });
 
-  it('paramCase (Array of string)', function() {
+  it('paramCase (Array of string)', function () {
     var initialArrStr = ['is_active', 'is_blocked'];
 
     var fixtureArrStr = ['is-active', 'is-blocked'];
@@ -117,7 +117,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
 
-  it('paramCase (Primitive - string)', function() {
+  it('paramCase (Primitive - string)', function () {
     var initialPrimitive = 'is_active';
 
     var fixturePrimitive = 'is-active';
@@ -125,7 +125,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('paramCase (Primitive - number)', function() {
+  it('paramCase (Primitive - number)', function () {
     var initialPrimitive = 42;
 
     var fixturePrimitive = 42;
@@ -133,7 +133,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('paramCase (Primitive - bool)', function() {
+  it('paramCase (Primitive - bool)', function () {
     var initialPrimitive = true;
 
     var fixturePrimitive = true;
@@ -141,7 +141,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('paramCase (deep)', function() {
+  it('paramCase (deep)', function () {
     var initialObj = {
       'helloWorld': {
         'helloThere': 'name',
@@ -159,7 +159,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
-  it('snakeCase', function() {
+  it('snakeCase', function () {
     var initialObj = {
       'helloWorld': 'test',
     };
@@ -171,23 +171,23 @@ describe('change-case-object', function() {
     expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
-  it('snakeCase (Array of Object)', function() {
+  it('snakeCase (Array of Object)', function () {
     var initialArrObj = [
-      {'helloWorld': 'test'},
-      {isActive: true},
-      {'is-Active': true},
+      { 'helloWorld': 'test' },
+      { isActive: true },
+      { 'is-Active': true },
     ];
 
     var fixtureArrObj = [
-      {'hello_world': 'test'},
-      {is_active: true},
-      {is_active: true},
+      { 'hello_world': 'test' },
+      { is_active: true },
+      { is_active: true },
     ];
 
     expect(changeCaseObject.snakeCase(initialArrObj)).to.deep.equal(fixtureArrObj);
   });
 
-  it('snakeCase (Array of string)', function() {
+  it('snakeCase (Array of string)', function () {
     var initialArrStr = ['isActive', 'isBlocked'];
 
     var fixtureArrStr = ['is_active', 'is_blocked'];
@@ -195,7 +195,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.snakeCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
 
-  it('snakeCase (Primitive - string)', function() {
+  it('snakeCase (Primitive - string)', function () {
     var initialPrimitive = 'isActive';
 
     var fixturePrimitive = 'is_active';
@@ -203,7 +203,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('snakeCase (Primitive - number)', function() {
+  it('snakeCase (Primitive - number)', function () {
     var initialPrimitive = 42;
 
     var fixturePrimitive = 42;
@@ -211,7 +211,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('snakeCase (Primitive - bool)', function() {
+  it('snakeCase (Primitive - bool)', function () {
     var initialPrimitive = true;
 
     var fixturePrimitive = true;
@@ -219,7 +219,7 @@ describe('change-case-object', function() {
     expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
-  it('snakeCase (deep)', function() {
+  it('snakeCase (deep)', function () {
     var initialObj = {
       'helloWorld': {
         'helloThere': 'name',
