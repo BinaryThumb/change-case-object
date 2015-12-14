@@ -35,9 +35,33 @@ describe('change-case-object', function() {
     var initialArrStr = ['is_active', 'is_blocked'];
 
     var fixtureArrStr = ['isActive', 'isBlocked'];
+
     expect(changeCaseObject.camelCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
 
+  it('camelCase (Primitive - string)', function() {
+    var initialPrimitive = 'is_active';
+
+    var fixturePrimitive = 'isActive';
+
+    expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('camelCase (Primitive - number)', function() {
+    var initialPrimitive = 42;
+
+    var fixturePrimitive = 42;
+
+    expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('camelCase (Primitive - bool)', function() {
+    var initialPrimitive = true;
+
+    var fixturePrimitive = true;
+
+    expect(changeCaseObject.camelCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
 
   it('camelCase (deep)', function() {
     var initialObj = {
@@ -69,6 +93,54 @@ describe('change-case-object', function() {
     expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
+  it('paramCase (Array of Object)', function() {
+    var initialArrObj = [
+      {'hello_world': 'test'},
+      {is_Active: true},
+      {isActive: true},
+    ];
+
+    var fixtureArrObj = [
+      {'hello-world': 'test'},
+      {'is-active': true},
+      {'is-active': true},
+    ];
+
+    expect(changeCaseObject.paramCase(initialArrObj)).to.deep.equal(fixtureArrObj);
+  });
+
+  it('paramCase (Array of string)', function() {
+    var initialArrStr = ['is_active', 'is_blocked'];
+
+    var fixtureArrStr = ['is-active', 'is-blocked'];
+
+    expect(changeCaseObject.paramCase(initialArrStr)).to.deep.equal(fixtureArrStr);
+  });
+
+  it('paramCase (Primitive - string)', function() {
+    var initialPrimitive = 'is_active';
+
+    var fixturePrimitive = 'is-active';
+
+    expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('paramCase (Primitive - number)', function() {
+    var initialPrimitive = 42;
+
+    var fixturePrimitive = 42;
+
+    expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('paramCase (Primitive - bool)', function() {
+    var initialPrimitive = true;
+
+    var fixturePrimitive = true;
+
+    expect(changeCaseObject.paramCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
   it('paramCase (deep)', function() {
     var initialObj = {
       'helloWorld': {
@@ -97,6 +169,54 @@ describe('change-case-object', function() {
     };
 
     expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('snakeCase (Array of Object)', function() {
+    var initialArrObj = [
+      {'helloWorld': 'test'},
+      {isActive: true},
+      {'is-Active': true},
+    ];
+
+    var fixtureArrObj = [
+      {'hello_world': 'test'},
+      {is_active: true},
+      {is_active: true},
+    ];
+
+    expect(changeCaseObject.snakeCase(initialArrObj)).to.deep.equal(fixtureArrObj);
+  });
+
+  it('snakeCase (Array of string)', function() {
+    var initialArrStr = ['isActive', 'isBlocked'];
+
+    var fixtureArrStr = ['is_active', 'is_blocked'];
+
+    expect(changeCaseObject.snakeCase(initialArrStr)).to.deep.equal(fixtureArrStr);
+  });
+
+  it('snakeCase (Primitive - string)', function() {
+    var initialPrimitive = 'isActive';
+
+    var fixturePrimitive = 'is_active';
+
+    expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('snakeCase (Primitive - number)', function() {
+    var initialPrimitive = 42;
+
+    var fixturePrimitive = 42;
+
+    expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('snakeCase (Primitive - bool)', function() {
+    var initialPrimitive = true;
+
+    var fixturePrimitive = true;
+
+    expect(changeCaseObject.snakeCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
   });
 
   it('snakeCase (deep)', function() {
