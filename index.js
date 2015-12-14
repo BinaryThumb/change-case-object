@@ -3,30 +3,30 @@ var snakeCase = require('snake-case');
 var paramCase = require('param-case');
 
 var changeKeys = function changeKeys(transformer, obj) {
-  if (Array.isArray(obj)) {
-    var r = [];
-    for (var i = 0; i < obj.length; i++) {
-        r.push(changeKeys(transformer, obj[i]));
-      }
-    return r;
-  } else if (typeof obj === 'object') {
-      var objectKeys = Object.keys(obj);
-      return objectKeys.map(function keysMap(key) {
-        return transformer(key);
-      }).reduce(function keysReducer(object, changedKey, index) {
-          var objValue = obj[objectKeys[index]];
-          var transformedValue = changeKeys(transformer, objValue);
-          object[changedKey] = transformedValue;
-          return object;
-        }, {});
-    }
-    else if (typeof obj === 'string') {
-      return transformer(obj);
-    }
-    else {
-      return obj;
-    }
+  var objectKeys;
 
+  if (Array.isArray(obj)) {
+    return obj.map(function keysMap(key) {
+      return changeKeys(transformer, key);
+    });
+  } else if (typeof obj === 'object') {
+    objectKeys = Object.keys(obj);
+    return objectKeys.map(function keysMap(key) {
+      return transformer(key);
+    }).reduce(function keysReducer(object, changedKey, index) {
+      var objValue;
+      var transformedValue;
+
+      objValue = obj[objectKeys[index]];
+      transformedValue = changeKeys(transformer, objValue);
+      object[changedKey] = transformedValue;
+      return object;
+    }, {});
+  } else if (typeof obj === 'string') {
+    return transformer(obj);
+  }
+
+  return obj;
 };
 
 var changeCaseObject = {};
