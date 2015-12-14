@@ -53,3 +53,7 @@ AirBnB ES5
 
 ## License
 MIT
+
+## Changelog
+1.1.0 Add support for arrays and primitives
+1.0.0 Initial version
