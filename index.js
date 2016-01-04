@@ -7,6 +7,10 @@ var changeKeys = function changeKeys(transformer, obj) {
 
   if (Array.isArray(obj)) {
     return obj.map(function keysMap(key) {
+      if (typeof key === 'string') {
+        return transformer(key);
+      }
+
       return changeKeys(transformer, key);
     });
   } else if (typeof obj === 'object' && obj !== null) {
@@ -22,8 +26,6 @@ var changeKeys = function changeKeys(transformer, obj) {
       object[changedKey] = transformedValue;
       return object;
     }, {});
-  } else if (typeof obj === 'string') {
-    return transformer(obj);
   }
 
   return obj;
@@ -31,14 +33,26 @@ var changeKeys = function changeKeys(transformer, obj) {
 
 var changeCaseObject = {};
 changeCaseObject.camel = changeCaseObject.camelCase = function camelCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return camelCase(obj);
+  }
+
   return changeKeys(camelCase, obj);
 };
 
 changeCaseObject.snake = changeCaseObject.snakeCase = function snakeCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return snakeCase(obj);
+  }
+
   return changeKeys(snakeCase, obj);
 };
 
 changeCaseObject.param = changeCaseObject.paramCase = function paramCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return paramCase(obj);
+  }
+
   return changeKeys(paramCase, obj);
 };
 

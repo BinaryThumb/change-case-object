@@ -55,6 +55,7 @@ AirBnB ES5
 MIT
 
 ## Changelog
+2.0.0 Object values are no longer being transformed by default
 1.1.1 Stricter checking for code guideline  
 1.1.0 Add support for arrays and primitives  
 1.0.0 Initial version

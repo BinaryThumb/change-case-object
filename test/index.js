@@ -15,6 +15,17 @@ describe('change-case-object', function () {
     expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
+  it('camelCase (special characters)', function () {
+    var initialObj = {
+      'hello_world': 'n#mä!%ads$§a',
+    };
+
+    var fixtureObj = {
+      'helloWorld': 'n#mä!%ads$§a',
+    };
+    expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
   it('camelCase (Array of Object)', function () {
     var initialArrObj = [
       { 'hello_world': 'test' },
@@ -81,6 +92,14 @@ describe('change-case-object', function () {
     expect(changeCaseObject.camelCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
+  it('camelCase (edge cases)', function () {
+    expect(changeCaseObject.camelCase(null)).to.equal(null);
+    expect(changeCaseObject.camelCase({})).to.a('object');
+    expect(changeCaseObject.camelCase([])).to.a('array');
+    expect(changeCaseObject.camelCase(Infinity)).to.equal(Infinity);
+    expect(changeCaseObject.camelCase(NaN)).to.a('number');
+  });
+
   it('paramCase', function () {
     var initialObj = {
       'helloWorld': 'test',
@@ -90,6 +109,17 @@ describe('change-case-object', function () {
       'hello-world': 'test',
     };
 
+    expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('paramCase (special characters)', function () {
+    var initialObj = {
+      'helloWorld': 'n#mä!%ads$§a',
+    };
+
+    var fixtureObj = {
+      'hello-world': 'n#mä!%ads$§a',
+    };
     expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
@@ -159,6 +189,14 @@ describe('change-case-object', function () {
     expect(changeCaseObject.paramCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
+  it('paramCase (edge cases)', function () {
+    expect(changeCaseObject.paramCase(null)).to.equal(null);
+    expect(changeCaseObject.paramCase({})).to.a('object');
+    expect(changeCaseObject.paramCase([])).to.a('array');
+    expect(changeCaseObject.paramCase(Infinity)).to.equal(Infinity);
+    expect(changeCaseObject.paramCase(NaN)).to.a('number');
+  });
+
   it('snakeCase', function () {
     var initialObj = {
       'helloWorld': 'test',
@@ -168,6 +206,17 @@ describe('change-case-object', function () {
       'hello_world': 'test',
     };
 
+    expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('snakeCase (special characters)', function () {
+    var initialObj = {
+      'helloWorld': 'n#mä!%ads$§a',
+    };
+
+    var fixtureObj = {
+      'hello_world': 'n#mä!%ads$§a',
+    };
     expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
   });
 
@@ -235,5 +284,13 @@ describe('change-case-object', function () {
     };
 
     expect(changeCaseObject.snakeCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('snakeCase (edge cases)', function () {
+    expect(changeCaseObject.snakeCase(null)).to.equal(null);
+    expect(changeCaseObject.snakeCase({})).to.a('object');
+    expect(changeCaseObject.snakeCase([])).to.a('array');
+    expect(changeCaseObject.snakeCase(Infinity)).to.equal(Infinity);
+    expect(changeCaseObject.snakeCase(NaN)).to.a('number');
   });
 });
