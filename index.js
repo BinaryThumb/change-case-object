@@ -9,7 +9,7 @@ var changeKeys = function changeKeys(transformer, obj) {
     return obj.map(function keysMap(key) {
       return changeKeys(transformer, key);
     });
-  } else if (typeof obj === 'object') {
+  } else if (typeof obj === 'object' && obj !== null) {
     objectKeys = Object.keys(obj);
     return objectKeys.map(function keysMap(key) {
       return transformer(key);
