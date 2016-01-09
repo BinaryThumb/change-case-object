@@ -9,24 +9,27 @@ var changeKeys = function changeKeys(transformer, obj) {
             r.push(changeKeys(transformer, obj[i]));
         }
         return r;
-    } else if (typeof obj === 'object') {
+    }
+    else if (obj instanceof Date) {
+        return obj;
+    }
+    else if (typeof obj === 'object' && obj) {
+
         var objectKeys = Object.keys(obj);
         return objectKeys.map(function keysMap(key) {
             return transformer(key);
         }).reduce(function keysReducer(object, changedKey, index) {
             var objValue = obj[objectKeys[index]];
+            // console.log(objValue);
             var transformedValue = changeKeys(transformer, objValue);
             object[changedKey] = transformedValue;
             return object;
         }, {});
-    }
-    else if (typeof obj === 'string') {
-        return transformer(obj);
+
     }
     else {
         return obj;
     }
-
 };
 
 var changeCaseObject = {};
