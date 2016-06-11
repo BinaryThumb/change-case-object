@@ -3,6 +3,8 @@ var snakeCase = require('snake-case');
 var paramCase = require('param-case');
 
 var changeKeys = function changeKeys(transformer, obj) {
+    if (!obj)
+        return obj;
     if (Array.isArray(obj)) {
         var r = [];
         for (var i = 0; i < obj.length; i++) {

@@ -1,6 +1,6 @@
 {
-  "name": "change-case-object",
-  "version": "1.0.2",
+  "name": "hm-change-case-object",
+  "version": "1.0.1",
   "description": "Changes the case of all keys of an object",
   "main": "index.js",
   "scripts": {
