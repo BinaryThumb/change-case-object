@@ -1,6 +1,7 @@
 var camelCase = require('camel-case');
 var snakeCase = require('snake-case');
 var paramCase = require('param-case');
+var pascalCase = require('pascal-case');
 
 var changeKeys = function changeKeys(transformer, obj) {
   var objectKeys;
@@ -54,6 +55,14 @@ changeCaseObject.param = changeCaseObject.paramCase = function paramCaseObject(o
   }
 
   return changeKeys(paramCase, obj);
+};
+
+changeCaseObject.pascal = changeCaseObject.pascalCase = function pascalCaseObject(obj) {
+  if (typeof obj === 'string') {
+    return pascalCase(obj);
+  }
+
+  return changeKeys(pascalCase, obj);
 };
 
 module.exports = changeCaseObject;
