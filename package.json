@@ -20,7 +20,8 @@
     "case",
     "change",
     "snake",
-    "param"
+    "param",
+    "pascal"
   ],
   "author": "Johannes Stein",
   "license": "MIT",
@@ -31,6 +32,7 @@
   "dependencies": {
     "camel-case": "^1.2.0",
     "param-case": "^1.1.1",
+    "pascal-case": "^2.0.1",
     "snake-case": "^1.1.1"
   },
   "devDependencies": {

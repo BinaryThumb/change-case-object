@@ -293,4 +293,103 @@ describe('change-case-object', function () {
     expect(changeCaseObject.snakeCase(Infinity)).to.equal(Infinity);
     expect(changeCaseObject.snakeCase(NaN)).to.a('number');
   });
+
+  it('pascalCase', function () {
+    var initialObj = {
+      'hello_world': 'test',
+    };
+
+    var fixtureObj = {
+      'HelloWorld': 'test',
+    };
+
+    expect(changeCaseObject.pascalCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('pascalCase (special characters)', function () {
+    var initialObj = {
+      'hello_world': 'n#mä!%ads$§a',
+    };
+
+    var fixtureObj = {
+      'HelloWorld': 'n#mä!%ads$§a',
+    };
+    expect(changeCaseObject.pascalCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('pascalCase (Array of Object)', function () {
+    var initialArrObj = [
+      { 'hello_world': 'test' },
+      { is_active: true },
+      { 'isActive': true },
+      { 'is-active': true },
+    ];
+
+    var fixtureArrObj = [
+      { 'HelloWorld': 'test' },
+      { IsActive: true },
+      { IsActive: true },
+      { IsActive: true },
+    ];
+
+    expect(changeCaseObject.pascalCase(initialArrObj)).to.deep.equal(fixtureArrObj);
+  });
+
+  it('pascalCase (Array of string)', function () {
+    var initialArrStr = ['is_active', 'is_blocked'];
+
+    var fixtureArrStr = ['IsActive', 'IsBlocked'];
+
+    expect(changeCaseObject.pascalCase(initialArrStr)).to.deep.equal(fixtureArrStr);
+  });
+
+  it('pascalCase (Primitive - string)', function () {
+    var initialPrimitive = 'is_active';
+
+    var fixturePrimitive = 'IsActive';
+
+    expect(changeCaseObject.pascalCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('pascalCase (Primitive - number)', function () {
+    var initialPrimitive = 42;
+
+    var fixturePrimitive = 42;
+
+    expect(changeCaseObject.pascalCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('pascalCase (Primitive - bool)', function () {
+    var initialPrimitive = true;
+
+    var fixturePrimitive = true;
+
+    expect(changeCaseObject.pascalCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('pascalCase (deep)', function () {
+    var initialObj = {
+      'hello_world': {
+        'hello_there': 'name',
+        'my_name': 'someone',
+      },
+    };
+
+    var fixtureObj = {
+      'HelloWorld': {
+        'HelloThere': 'name',
+        'MyName': 'someone',
+      },
+    };
+
+    expect(changeCaseObject.pascalCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('pascalCase (edge cases)', function () {
+    expect(changeCaseObject.pascalCase(null)).to.equal(null);
+    expect(changeCaseObject.pascalCase({})).to.a('object');
+    expect(changeCaseObject.pascalCase([])).to.a('array');
+    expect(changeCaseObject.pascalCase(Infinity)).to.equal(Infinity);
+    expect(changeCaseObject.pascalCase(NaN)).to.a('number');
+  });
 });
