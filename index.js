@@ -31,7 +31,7 @@ var changeKeys = function changeKeys(transformer, obj) {
   return obj;
 };
 
-var changeCaseObject = {};
+var changeCaseObject = {changeKeys: changeKeys};
 changeCaseObject.camel = changeCaseObject.camelCase = function camelCaseObject(obj) {
   if (typeof obj === 'string') {
     return camelCase(obj);
