@@ -45,7 +45,7 @@ describe('change-case-object', function () {
   it('camelCase (Array of string)', function () {
     var initialArrStr = ['is_active', 'is_blocked'];
 
-    var fixtureArrStr = ['isActive', 'isBlocked'];
+    var fixtureArrStr = ['is_active', 'is_blocked'];
 
     expect(changeCaseObject.camelCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
@@ -142,7 +142,7 @@ describe('change-case-object', function () {
   it('paramCase (Array of string)', function () {
     var initialArrStr = ['is_active', 'is_blocked'];
 
-    var fixtureArrStr = ['is-active', 'is-blocked'];
+    var fixtureArrStr = ['is_active', 'is_blocked'];
 
     expect(changeCaseObject.paramCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
@@ -239,7 +239,7 @@ describe('change-case-object', function () {
   it('snakeCase (Array of string)', function () {
     var initialArrStr = ['isActive', 'isBlocked'];
 
-    var fixtureArrStr = ['is_active', 'is_blocked'];
+    var fixtureArrStr = ['isActive', 'isBlocked'];
 
     expect(changeCaseObject.snakeCase(initialArrStr)).to.deep.equal(fixtureArrStr);
   });
