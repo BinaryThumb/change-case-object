@@ -30,22 +30,27 @@ var newObject = changeCaseObject.camelCase(myObject);
 All methods are available under the `changeCaseObject` object after the module has been required.
 
 ### .camelCase
-Conerts all object keys into camel case.  
+Converts all object keys into camel case.  
 `hello_world -> helloWorld`
 
 ### .snakeCase
-Conerts all object keys into snake case.  
+Converts all object keys into snake case.  
 `helloWorld -> hello_world`
 
 ### .paramCase
-Conerts all object keys into param case.  
+Converts all object keys into param case.  
 `helloWorld -> hello-world`
+
+### .constantCase
+Converts all object keys into constant case.  
+`helloWorld -> HELLO_WORLD`
 
 Shorthand methods are also available:
 ```
 .camelCase -> .camel
 .snakeCase -> .snake
 .paramCase -> .param
+.constantCase -> .constant
 ```
 
 ## Code Guideline
