@@ -30,6 +30,7 @@
   "homepage": "https://github.com/BinaryThumb/change-case-object#readme",
   "dependencies": {
     "camel-case": "^1.2.0",
+    "constant-case": "^3.0.3",
     "param-case": "^1.1.1",
     "snake-case": "^1.1.1"
   },

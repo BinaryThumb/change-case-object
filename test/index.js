@@ -293,4 +293,101 @@ describe('change-case-object', function () {
     expect(changeCaseObject.snakeCase(Infinity)).to.equal(Infinity);
     expect(changeCaseObject.snakeCase(NaN)).to.a('number');
   });
+
+  it('constantCase', function () {
+    var initialObj = {
+      'helloWorld': 'test',
+    };
+
+    var fixtureObj = {
+      'HELLO_WORLD': 'test',
+    };
+
+    expect(changeCaseObject.constantCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('constantCase (special characters)', function () {
+    var initialObj = {
+      'helloWorld': 'n#mä!%ads$§a',
+    };
+
+    var fixtureObj = {
+      'HELLO_WORLD': 'n#mä!%ads$§a',
+    };
+    expect(changeCaseObject.constantCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('constantCase (Array of Object)', function () {
+    var initialArrObj = [
+      { 'helloWorld': 'test' },
+      { isActive: true },
+      { 'is-Active': true },
+    ];
+
+    var fixtureArrObj = [
+      { 'HELLO_WORLD': 'test' },
+      { IS_ACTIVE: true },
+      { IS_ACTIVE: true },
+    ];
+
+    expect(changeCaseObject.constantCase(initialArrObj)).to.deep.equal(fixtureArrObj);
+  });
+
+  it('constantCase (Array of string)', function () {
+    var initialArrStr = ['isActive', 'isBlocked'];
+
+    var fixtureArrStr = ['IS_ACTIVE', 'IS_BLOCKED'];
+
+    expect(changeCaseObject.constantCase(initialArrStr)).to.deep.equal(fixtureArrStr);
+  });
+
+  it('constantCase (Primitive - string)', function () {
+    var initialPrimitive = 'isActive';
+
+    var fixturePrimitive = 'IS_ACTIVE';
+
+    expect(changeCaseObject.constantCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('constantCase (Primitive - number)', function () {
+    var initialPrimitive = 42;
+
+    var fixturePrimitive = 42;
+
+    expect(changeCaseObject.constantCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('constantCase (Primitive - bool)', function () {
+    var initialPrimitive = true;
+
+    var fixturePrimitive = true;
+
+    expect(changeCaseObject.constantCase(initialPrimitive)).to.deep.equal(fixturePrimitive);
+  });
+
+  it('constantCase (deep)', function () {
+    var initialObj = {
+      'helloWorld': {
+        'helloThere': 'name',
+        'myName': 'someone',
+      },
+    };
+
+    var fixtureObj = {
+      'HELLO_WORLD': {
+        'HELLO_THERE': 'name',
+        'MY_NAME': 'someone',
+      },
+    };
+
+    expect(changeCaseObject.constantCase(initialObj)).to.deep.equal(fixtureObj);
+  });
+
+  it('constantCase (edge cases)', function () {
+    expect(changeCaseObject.constantCase(null)).to.equal(null);
+    expect(changeCaseObject.constantCase({})).to.a('object');
+    expect(changeCaseObject.constantCase([])).to.a('array');
+    expect(changeCaseObject.constantCase(Infinity)).to.equal(Infinity);
+    expect(changeCaseObject.constantCase(NaN)).to.a('number');
+  });
 });
